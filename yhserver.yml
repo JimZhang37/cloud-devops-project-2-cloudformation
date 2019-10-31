@@ -41,10 +41,7 @@ Resources:
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          CidrIp: 0.0.0.0/0
+
       Tags: 
         - Key: Name 
           Value: !Sub ${EnvironmentName} Web Server Security Group
@@ -75,7 +72,7 @@ Resources:
       IamInstanceProfile: !Ref ProfileWithRolesForOurApp
       SecurityGroups:
         - Ref: WebServerSecGroup
-      InstanceType: t3.small
+      InstanceType: t2.micro
       BlockDeviceMappings:
         - DeviceName: "/dev/sdk"
           Ebs:
@@ -87,7 +84,7 @@ Resources:
     Properties: 
       LaunchConfigurationName: 
         Ref: WebAppLaunchConfig
-      MaxSize: '5'
+      MaxSize: '1'
       MinSize: '1'
       TargetGroupARNs:
         - Ref: WebAppTargetGroup
