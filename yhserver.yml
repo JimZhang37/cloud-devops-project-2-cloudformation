@@ -68,11 +68,11 @@ Resources:
           cd /var/www/html
           aws s3 cp s3://udacity-demo-1/udacity.zip .
           unzip -o udacity.zip
-      ImageId: ami-0f90382a194158cca
+      ImageId: ami-04b9e92b5572fa0d1
       IamInstanceProfile: !Ref ProfileWithRolesForOurApp
       SecurityGroups:
         - Ref: WebServerSecGroup
-      InstanceType: t3.small
+      InstanceType: t3.medium
       BlockDeviceMappings:
         - DeviceName: "/dev/sdk"
           Ebs:
