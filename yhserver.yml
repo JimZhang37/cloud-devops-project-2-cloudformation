@@ -76,7 +76,6 @@ Resources:
       SecurityGroups:
         - Ref: WebServerSecGroup
       InstanceType: t3.small
-      KeyName: cloud devops
       BlockDeviceMappings:
         - DeviceName: "/dev/sdk"
           Ebs:
