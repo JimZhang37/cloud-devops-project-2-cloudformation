@@ -68,7 +68,7 @@ Resources:
           cd /var/www/html
           aws s3 cp s3://udacity-demo-1/udacity.zip .
           unzip -o udacity.zip
-      ImageId: ami-04b9e92b5572fa0d1
+      ImageId: ami-0b69ea66ff7391e80
       IamInstanceProfile: !Ref ProfileWithRolesForOurApp
       SecurityGroups:
         - Ref: WebServerSecGroup
@@ -84,8 +84,8 @@ Resources:
     Properties: 
       LaunchConfigurationName: 
         Ref: WebAppLaunchConfig
-      MaxSize: '1'
-      MinSize: '1'
+      MaxSize: '6'
+      MinSize: '4'
       TargetGroupARNs:
         - Ref: WebAppTargetGroup
       VPCZoneIdentifier: 
