@@ -52,6 +52,12 @@ Resources:
         Fn::ImportValue:
           !Sub "${EnvironmentName}-VPCID"
 
+  ProfileWithRolesForOurApp:
+    Type: AWS::IAM::InstanceProfile
+    Properties: 
+      Roles:
+        - UdacityS3ReadOnlyEC2
+
   WebAppLaunchConfig:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties: 
@@ -66,10 +72,15 @@ Resources:
           aws s3 cp s3://udacity-demo-1/udacity.zip .
           unzip -o udacity.zip
       ImageId: ami-0f90382a194158cca
+      IamInstanceProfile: !Ref ProfileWithRolesForOurApp
       SecurityGroups:
         - Ref: WebServerSecGroup
       InstanceType: t2.micro
       KeyName: cloud devops
+      BlockDeviceMappings:
+        - DeviceName: "/dev/sdk"
+          Ebs:
+            VolumeSize: '10'
 
           
   WebAppGroup:
@@ -78,12 +89,12 @@ Resources:
       LaunchConfigurationName: 
         Ref: WebAppLaunchConfig
       MaxSize: '5'
-      MinSize: '3'
+      MinSize: '1'
       TargetGroupARNs:
         - Ref: WebAppTargetGroup
       VPCZoneIdentifier: 
         - Fn::ImportValue:
-            !Sub "${EnvironmentName}-PUB-NETS"
+            !Sub "${EnvironmentName}-PRIV-NETS"
       Tags: 
         - Key: Name 
           PropagateAtLaunch: false
