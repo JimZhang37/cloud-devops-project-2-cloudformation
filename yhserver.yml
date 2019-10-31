@@ -68,11 +68,11 @@ Resources:
           cd /var/www/html
           aws s3 cp s3://udacity-demo-1/udacity.zip .
           unzip -o udacity.zip
-      ImageId: ami-0b69ea66ff7391e80
+      ImageId: ami-0f90382a194158cca
       IamInstanceProfile: !Ref ProfileWithRolesForOurApp
       SecurityGroups:
         - Ref: WebServerSecGroup
-      InstanceType: t2.micro
+      InstanceType: t3.small
       BlockDeviceMappings:
         - DeviceName: "/dev/sdk"
           Ebs:
@@ -136,7 +136,7 @@ Resources:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties: 
       HealthCheckIntervalSeconds: 10
-      HealthCheckPath: /phpinfo.php
+      HealthCheckPath: /
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 8
       HealthyThresholdCount: 2
