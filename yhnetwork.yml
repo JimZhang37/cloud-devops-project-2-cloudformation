@@ -2,13 +2,13 @@ Description: >
   zzzzzz
 Parameters:
     EnvironmentName:
-      Description: aaa
-      Type: String
+        Description: aaa
+        Type: String
     
     VpcCIDR:
-      Description: bbb
-      Type: String
-      Default: 10.0.0.0/16
+        Description: bbb
+        Type: String
+        Default: 10.0.0.0/16
 
     PublicSubnet1CIDR:
         Description: Please enter the IP range (CIDR notation) for the public subnet in the first Availability Zone
