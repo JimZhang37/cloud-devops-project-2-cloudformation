@@ -9,9 +9,9 @@
 ## Introduction
 This is scripts to setup a cloud infrastructure that includes network, servers and loadbalancer. 
 ## How to setup
-Please make sure the prerequisit is met before you run the script.
+Please make sure the prerequisite is met before you run the script.
 * AWS CLI
-* AWS user with programatic access
+* AWS user with programmatic access
 
 How to run the script
 * Users shoud be given privilege to run two script files
@@ -21,11 +21,18 @@ How to run the script
 
 ## Files
 * yhnetwork.yml
+template to create network
 * yhnetworkpara.json
+parameters used in network template
 * yhserver.yml
+template to create servers, loadbalancer, auto-scaling group, etc.
 * yhserverpara.json
+parameters used in server template
 * create.sh
+script to set up a new stack with 3 parameters
 * update.sh
+script to upgrade an existing stack with 3 parameters
+
 
 Two additional files are included, but they are not functional.
 * network.yml
