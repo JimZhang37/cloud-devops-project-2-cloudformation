@@ -20,23 +20,23 @@ How to run the script
 * Please create network before servers
 
 ## Files
-* yhnetwork.yml
+* `yhnetwork.yml`
 template to create network
-* yhnetworkpara.json
+* `yhnetworkpara.json`
 parameters used in network template
-* yhserver.yml
+* `yhserver.yml`
 template to create servers, loadbalancer, auto-scaling group, etc.
-* yhserverpara.json
+* `yhserverpara.json`
 parameters used in server template
-* create.sh
+* `create.sh`
 script to set up a new stack with 3 parameters
-* update.sh
+* `update.sh`
 script to upgrade an existing stack with 3 parameters
 
 
 Two additional files are included, but they are not functional.
-* network.yml
-* final-project-starter.yml
+* `network.yml`
+* `final-project-starter.yml`
 
 ## Features
 * Create a infrastructure using code
